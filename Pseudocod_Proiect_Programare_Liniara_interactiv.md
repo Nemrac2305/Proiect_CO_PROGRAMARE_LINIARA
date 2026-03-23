@@ -10,7 +10,7 @@ PENTRU i = 1 LA m EXECUTA
         SFARSIT_DACA
 SFARSIT_PENTRU
 
-// [Standardizare (R2) și Big-M](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=10)
+// [Standardizare (R2) și Big-M](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=15)
     M = Valoare_Foarte_Mare   // poate fi considerata 1000
     A_standard, C_standard, Baza_Initiala = Standardizeaza(A, C, tip_restrictie, M)
 
@@ -18,7 +18,7 @@ SFARSIT_PENTRU
     GATA = FALSE
 
 CAT TIMP GATA == FALSE EXECUTA
-        // [Calcul Delta](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=10)
+        // [Calcul Delta](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=15)
         PENTRU j = 1 LA total_variabile EXECUTA
             Z[j] = SUMA(C_standard[Baza_Initiala[i]] * A_standard[i][j], pentru i = 1..m)
             Delta[j] = C_standard[j] - Z[j]
@@ -59,35 +59,35 @@ ALTFEL
                 STARE = "OPTIM_INFINIT"
             ALTFEL
                 // Criteriul de ieșire din bază
-                // Aici se aplică [Regula lui Charnes](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=10) în caz de egalitate a raportului
+                // Aici se aplică [Regula lui Charnes](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=15) în caz de egalitate a raportului
                 i_pivot = Identifica_Pivot_Charnes(A_standard, B, j_pivot)
 
-// [Regula dreptunghiului (Transformarea Gauss-Jordan)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=11)
+// [Regula dreptunghiului (Transformarea Gauss-Jordan)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=16)
                 Pivotare(A_standard, B, Baza_Initiala, i_pivot, j_pivot)
             SFARSIT_DACA
         SFARSIT_DACA
     SFARSIT_CAT_TIMP
 
-// [Verificările V1, V2, V3 și afișare](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=7)
+// [Verificările V1, V2, V3 și afișare](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=11)
     DACA STARE == "OPTIM_GASIT" SAU STARE == "OPTIM_MULTIPLU" ATUNCI
 
-// [V1: Verificarea nenegativitatii (admisibilitatea)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=7)
+// [V1: Verificarea nenegativitatii (admisibilitatea)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=11)
         // Se verifica conditia: Pentru orice x_j din solutia optima, x_j >= 0
         VALID_V1 = Verifica_Nenegativitate(Baza_Initiala, B)
 
-// [V2: Verificarea valorii functiei obiectiv](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=7)
+// [V2: Verificarea valorii functiei obiectiv](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=11)
         // Calcul f(x1, x2, x3) = 79*x1 + 84*x2 + 81*x3 si compararea cu tabelul
         f_tabel = Calcul_Z_Optim()
         f_verificat = SUMA(C_initial[j] * X_optim[j])
         VALID_V2 = (f_tabel == f_verificat)
 
-// [V3: Verificare matriceală (legătura între I0 și Istop)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=7)
+// [V3: Verificare matriceală (legătura între I0 și Istop)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=12)
         // S * XB(Istop) = B(I0)
         S = Extrage_Matrice_S(A_initial, Baza_Finala)
         XB = Extrage_Coloana_Termeni_Liberi_Finala()
         VALID_V3 = (S * XB == B_Initial)
 
-[Afiseaza_Rezultate_Validate(VALID_V1, VALID_V2, VALID_V3)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=5)
+[Afiseaza_Rezultate_Validate(VALID_V1, VALID_V2, VALID_V3)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=11)
     SFARSIT_DACA
 SF_PROCEDURE
 
