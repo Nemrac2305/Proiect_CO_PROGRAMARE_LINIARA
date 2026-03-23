@@ -1,5 +1,5 @@
 PROCEDURE Main()
-    // [Citire și normalizare - verificăm că putem aplica ASP (toți bi >= 0)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=10)
+    // [Citire și normalizare - verificăm că putem aplica ASP (toți bi >= 0)](https://www.overleaf.com/read/wnvjynzvzrgw#267030&pagenumber=15)
     CITESTE n, m, tip_optim, C, A, B, tip_restrictie
 
 PENTRU i = 1 LA m EXECUTA
