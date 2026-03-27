@@ -1,4 +1,4 @@
-# Proiect CO - Programare Liniară
+# Proiect Cercetări Operaționale - Programare Liniară
 
 > Implementare didactică a rezolvării problemelor de **programare liniară** prin **Algoritmul Simplex Primal**, atât în **consolă**, cât și printr-o **interfață grafică** realizată cu **CustomTkinter**.
 
