@@ -80,3 +80,6 @@ Proiect_CO_PROGRAMARE_LINIARA/
         ├── presets.py
         ├── solver.py
         └── ui.py
+© 2026 Tudoroiu Carmen-Mihaela & Radu Balan. All rights reserved.
+
+This project is for portfolio demonstration only. No part of this repository may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the authors.
